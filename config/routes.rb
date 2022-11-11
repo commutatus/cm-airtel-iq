@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  post 'webhooks/process'
+  post "/webhooks/process/:webhook_source", controller: :webhooks, action: :process
 end
