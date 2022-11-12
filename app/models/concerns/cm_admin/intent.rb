@@ -26,6 +26,10 @@ module CmAdmin::Intent
         column :context, header: 'Context'
       end
 
+      tab :responses, 'responses', associated_model: :responses, layout_type: 'cm_association_index' do
+        column :content, header: 'Content'
+      end
+
       cm_new page_title: 'Add Intent', page_description: 'Enter all details to add intent' do
         form_field :email, input_type: :string, label: 'Email'
         form_field :user_id, input_type: :single_select, label: 'User', helper_method: :user_collection
