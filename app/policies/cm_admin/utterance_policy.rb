@@ -1,4 +1,4 @@
-class CmAdmin::IntentPolicy < ApplicationPolicy
+class CmAdmin::UtterancePolicy < ApplicationPolicy
 
   def index?
     # @user.super_admin?
@@ -21,11 +21,6 @@ class CmAdmin::IntentPolicy < ApplicationPolicy
   end
   
   def destroy?
-    # @user.super_admin?
-    true
-  end
-
-  def utterances?
     # @user.super_admin?
     true
   end

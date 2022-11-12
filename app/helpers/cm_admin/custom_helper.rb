@@ -6,5 +6,9 @@ module CmAdmin::CustomHelper
   def chatbot_collection(_model, _ctx)
     ::Chatbot.all.map{|cb| [cb.name.titleize, cb.id]}
   end
+
+  def intent_collection(_model, _ctx)
+    ::Intent.all.map{|intent| [intent.intent_name.titleize, intent.id]}
+  end
 end
   
