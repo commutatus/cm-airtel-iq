@@ -16,7 +16,8 @@ module CmAdmin::Intent
         tab :profile, '' do
           cm_show_section 'Intent Details' do
             field :intent_name, label: 'Intent Name'
-            field :super_admin, label: 'Is Super Admin?', field_type: :enum
+            field :user_id, label: 'User Id'
+            field :chatbot_id, label: 'Chatbot Id'
           end
         end
       end
