@@ -1,6 +1,6 @@
-class CreateChatBots < ActiveRecord::Migration[7.0]
+class CreateChatbots < ActiveRecord::Migration[7.0]
   def change
-    create_table :chat_bots do |t|
+    create_table :chatbots do |t|
       t.string :name
       t.string :description
       t.string :bot_id
