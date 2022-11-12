@@ -73,3 +73,6 @@ end
 
 gem 'devise'
 gem 'slim'
+
+# admin panel
+gem 'cm-admin', path: '../cm-admin'
