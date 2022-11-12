@@ -7,4 +7,9 @@ class User < ApplicationRecord
 
   has_many :chatbots
   has_many :intents
+
+  def password_required?
+    return false
+    super
+  end
 end
