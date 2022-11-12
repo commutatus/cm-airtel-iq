@@ -10,9 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_11_080055) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_11_142623) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "chatbots", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "bot_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_chatbots_on_user_id"
+  end
+
+  create_table "intents", force: :cascade do |t|
+    t.text "intent_name"
+    t.bigint "user_id", null: false
+    t.bigint "chatbot_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chatbot_id"], name: "index_intents_on_chatbot_id"
+    t.index ["user_id"], name: "index_intents_on_user_id"
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.text "content"
+    t.bigint "intent_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["intent_id"], name: "index_responses_on_intent_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +54,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_11_080055) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "utterances", force: :cascade do |t|
+    t.text "context"
+    t.bigint "intent_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["intent_id"], name: "index_utterances_on_intent_id"
+  end
+
+  add_foreign_key "chatbots", "users"
+  add_foreign_key "intents", "chatbots"
+  add_foreign_key "intents", "users"
+  add_foreign_key "responses", "intents"
+  add_foreign_key "utterances", "intents"
 end
