@@ -73,3 +73,5 @@ end
 
 gem 'devise'
 gem 'slim'
+# gem 'cm-admin', '~> 0.8.8'
+gem 'cm-admin', path: '../cm-admin'
