@@ -12,4 +12,12 @@ class CmAdmin::IntentPolicy < ApplicationPolicy
     index?
   end
 
+  def utterances?
+    index?
+  end
+
+  def responses?
+    index?
+  end
+
 end
