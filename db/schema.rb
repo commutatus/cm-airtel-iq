@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_11_142623) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_12_104846) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_11_142623) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_chatbots_on_user_id"
+  end
+
+  create_table "file_imports", force: :cascade do |t|
+    t.string "associated_model_name"
+    t.string "added_by_type", null: false
+    t.bigint "added_by_id", null: false
+    t.jsonb "error_report"
+    t.datetime "completed_at"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["added_by_type", "added_by_id"], name: "index_file_imports_on_added_by"
   end
 
   create_table "intents", force: :cascade do |t|
