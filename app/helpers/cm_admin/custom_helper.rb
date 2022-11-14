@@ -8,6 +8,6 @@ module CmAdmin::CustomHelper
   end
 
   def intent_collection(_model, _ctx)
-    ::Intent.all.map{|intent| [intent.intent_name.titleize, intent.id]}
+    ::Intent.all.map{|intent| [intent.name.titleize, intent.id]}
   end
 end
