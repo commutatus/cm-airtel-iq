@@ -62,6 +62,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem 'spring'
+
+  # Ruby debugger
+  gem 'byebug', '~> 11.1', '>= 11.1.3'
 end
 
 group :test do
@@ -73,3 +76,5 @@ end
 
 gem 'devise'
 gem 'slim'
+# gem 'cm-admin', '~> 0.8.8'
+gem 'cm-admin', path: '../cm-admin'

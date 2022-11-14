@@ -32,3 +32,6 @@
 
 # Ignore all the OS generated files
 .DS_Store
+
+# Ignore byebug history
+.byebug_history
