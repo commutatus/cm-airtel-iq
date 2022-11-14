@@ -7,6 +7,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  enum role: {
+    member: 'member',
+    admin: 'admin',
+    super_admin: 'super_admin'
+  }
+
   has_many :chatbots
   has_many :intents
 end
