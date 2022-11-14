@@ -12,7 +12,7 @@ module CmAdmin::Intent
         column :intent_name, header: 'Name'
       end
 
-      cm_show page_title: :name, page_description: "Intent Details" do
+      cm_show page_title: :intent_name, page_description: "Intent Details" do
         tab :profile, '' do
           cm_show_section 'Intent Details' do
             field :intent_name, label: 'Name'
@@ -23,7 +23,7 @@ module CmAdmin::Intent
       end
 
       tab :utterances, 'utterances', associated_model: :utterances, layout_type: 'cm_association_index' do
-        column :content, header: 'Content'
+        column :context, header: 'Content'
       end
 
       tab :responses, 'responses', associated_model: :responses, layout_type: 'cm_association_index' do

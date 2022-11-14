@@ -13,7 +13,7 @@ module CmAdmin::Utterance
         column :context, header: 'Content'
       end
 
-      cm_show page_title: :content, page_description: "Utterance Details" do
+      cm_show page_title: :context, page_description: "Utterance Details" do
         tab :profile, '' do
           cm_show_section 'Utterance Details' do
             field :context, label: 'Content'
